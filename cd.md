@@ -39,35 +39,15 @@ Ansible is well-suited for CD because it:
 
 ## Ansible CD Workflow – Step by Step
 
-### 1️. Developer Commit
-- Developer pushes code to Git repository
-- Commit triggers CI/CD pipeline
-
 ---
 
-### 2️. CI Pipeline Execution
-- Code is built
-- Unit tests and static checks are executed
-- Artifact (JAR, WAR, Docker image, package) is created
-
----
-
-### 3️. Artifact Storage
-- Artifact is stored in a repository such as:
-  - Nexus
-  - Artifactory
-  - S3
-  - Docker Registry
-
----
-
-### 4️. Ansible Playbook Trigger
+### 1. Ansible Playbook Trigger
 - CI tool triggers Ansible playbook
 - Inventory defines target servers (dev, staging, prod)
 
 ---
 
-### 5️. Deployment to Target Servers
+### 2. Deployment to Target Servers
 Ansible playbook performs:
 - Artifact download
 - Configuration updates
@@ -76,13 +56,13 @@ Ansible playbook performs:
 
 ---
 
-### 6️. Service Restart / Reload
+### 3. Service Restart / Reload
 - Application or service is restarted using handlers
 - Ensures changes are applied safely
 
 ---
 
-### 7️. Health Check & Validation
+### 4. Health Check & Validation
 - Application health endpoints are verified
 - Rollback triggered if deployment fails
 
