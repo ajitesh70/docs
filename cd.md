@@ -1,213 +1,142 @@
-# Ansible Playbook – Continuous Deployment (CD) Workflow
-
-| Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
-|--------|------------|---------|------------------|-------------|-------------|-------------|
-| Ajitesh Singh | 21-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
-
----
+#  Ansible Playbook – Continuous Deployment (CD) Workflow
 
 ##  Table of Contents
-- [Introduction](#introduction)
-- [Purpose](#purpose)
+- [What is Continuous Deployment (CD)?](#what-is-continuous-deployment-cd)
+- [Why Use Ansible for CD?](#why-use-ansible-for-cd)
 - [CD Workflow Overview](#cd-workflow-overview)
-- [Architecture Flow](#architecture-flow)
-- [Pre-requisites](#pre-requisites)
-- [Directory Structure](#directory-structure)
-- [Inventory Explanation](#inventory-explanation)
-- [Playbook Breakdown](#playbook-breakdown)
-- [Variables and Templates](#variables-and-templates)
-- [Deployment Steps](#deployment-steps)
-- [Rollback Strategy](#rollback-strategy)
-- [Monitoring and Validation](#monitoring-and-validation)
-- [Security Best Practices](#security-best-practices)
-- [Troubleshooting](#troubleshooting)
-- [Contact Information](#contact-information)
-- [References](#references)
+- [Ansible CD Workflow – Step by Step](#ansible-cd-workflow--step-by-step)
+- [Ansible Components Used](#ansible-components-used)
+- [Advantages](#advantages)
+- [Disadvantages](#disadvantages)
+- [Best Practices](#best-practices)
+- [Conclusion](#conclusion)
 
 ---
 
-## Introduction
-This document describes the **Continuous Deployment (CD) workflow using Ansible Playbooks**. It explains how application artifacts are automatically deployed to target servers using Ansible without manual intervention.
+## What is Continuous Deployment (CD)?
+
+**Continuous Deployment (CD)** is a DevOps practice where **every successful code change is automatically deployed to target environments** after passing all tests, without manual intervention.
 
 ---
 
-## Purpose
-The purpose of this documentation is to standardize application deployment using automation, reduce manual errors, ensure consistent environments, and improve deployment reliability.
+## Why Use Ansible for CD?
 
----
-
-## Continuous Deployment (CD)
-
-Continuous Deployment (CD) is the automated process of deploying a built application artifact to target servers without manual intervention.  
-It ensures fast, consistent, and reliable releases by using automation tools like Ansible to deploy, validate, and maintain applications.
-
-
-
-
-
----
-
-## Architecture Flow
-
-| Component | Role |
-|------------|------|
-| Git Repository | Stores application source code |
-| CI Tool | Builds artifacts |
-| Artifact Repo | Stores build packages |
-| Ansible Control Node | Executes playbooks |
-| Managed Nodes | Target servers |
-| Monitoring | Health validation |
-
----
-
-## Pre-requisites
-
-| Requirement | Description |
-|--------------|-------------|
-| Ansible | Installed on control node |
-| SSH Access | Key-based authentication |
-| Python | Required on managed nodes |
-| Inventory File | Hosts list |
-| Artifact Repo Access | Download permissions |
+Ansible is well-suited for CD because it:
+- Is **agentless**
+- Uses **simple YAML playbooks**
+- Ensures **idempotent deployments**
+- Integrates easily with **CI tools (Jenkins, GitHub Actions, GitLab CI)**
 
 ---
 
 ## CD Workflow Overview
 
-<img width="387" height="656" alt="Screenshot 2026-01-27 100954 - Copy" src="https://github.com/user-attachments/assets/cc8fe20e-a5ac-4562-a0d2-2440d7191ecd" />
 
+::contentReference[oaicite:0]{index=0}
 
-## Directory Structure
-
-```
-ansible-cd/
-├── inventory.ini
-├── deploy.yml
-├── roles/
-│   └── app-deploy/
-│       ├── tasks/
-│       ├── templates/
-│       └── vars/
-```
 
 ---
 
-## Inventory Explanation
+## Ansible CD Workflow – Step by Step
 
-The inventory file defines the list of target servers where Ansible will execute the playbook.  
-It organizes hosts into groups, allowing centralized and parallel management of multiple machines.
-
-Example inventory:
-```ini
-[app_servers]
-10.0.1.10
-10.0.1.11
-```
-
-Defines target machines for deployment.
+### 1️. Developer Commit
+- Developer pushes code to Git repository
+- Commit triggers CI/CD pipeline
 
 ---
 
-## Playbook Breakdown
-
-Example playbook snippet:
-```yaml
-- name: Deploy Application
-  hosts: app_servers
-  become: yes
-  roles:
-    - app-deploy
-```
-
-Executes deployment tasks on target servers.
+### 2️. CI Pipeline Execution
+- Code is built
+- Unit tests and static checks are executed
+- Artifact (JAR, WAR, Docker image, package) is created
 
 ---
 
-## Variables and Templates
-
-Variables example:
-```yaml
-app_port: 8080
-app_version: v1.0
-```
-
-Templates allow dynamic configuration using Jinja2.
+### 3️. Artifact Storage
+- Artifact is stored in a repository such as:
+  - Nexus
+  - Artifactory
+  - S3
+  - Docker Registry
 
 ---
 
-## Deployment Steps
-
-Run playbook:
-```bash
-ansible-playbook -i inventory.ini deploy.yml
-```
-
-Steps executed:
-- Download artifact
-- Extract files
-- Update configuration
-- Restart service
-- Validate health
+### 4️. Ansible Playbook Trigger
+- CI tool triggers Ansible playbook
+- Inventory defines target servers (dev, staging, prod)
 
 ---
 
-## Rollback Strategy
-
-- Maintain previous artifact versions
-- Restore last stable build
-- Restart service
-- Validate application
-
----
-
-## Monitoring and Validation
-
-Check service status:
-```bash
-systemctl status myapp
-```
-
-Health check:
-```bash
-curl http://localhost:8080/health
-```
+### 5️. Deployment to Target Servers
+Ansible playbook performs:
+- Artifact download
+- Configuration updates
+- File copy
+- Permission handling
 
 ---
 
-## Security Best Practices
-
-- Use SSH key authentication
-- Encrypt secrets with Ansible Vault
-- Limit sudo privileges
-- Restrict inventory access
-- Rotate credentials
+### 6️. Service Restart / Reload
+- Application or service is restarted using handlers
+- Ensures changes are applied safely
 
 ---
 
-## Troubleshooting
-
-| Issue | Cause | Solution |
-|-------|--------|-----------|
-| SSH failure | Key issue | Verify SSH keys |
-| Service not starting | Config issue | Check logs |
-| Timeout | Network issue | Verify connectivity |
+### 7️. Health Check & Validation
+- Application health endpoints are verified
+- Rollback triggered if deployment fails
 
 ---
 
-## Contact Information
+## Ansible Components Used
 
-| Name | Email |
-|------|-------|
-| Ajitesh Singh | ajitesh.singh.snaatak@mygurukulam.co |
+| Component | Purpose |
+|--------|--------|
+| Playbook | Defines deployment logic |
+| Inventory | Target hosts and environments |
+| Roles | Reusable deployment logic |
+| Variables | Environment-specific configs |
+| Handlers | Restart services |
+| Vault | Secure secrets |
 
 ---
 
-## References
 
-| Link | Description |
-|------|-------------|
-| https://docs.ansible.com | Ansible Documentation |
-| https://docs.ansible.com/ansible/latest/playbooks.html | Playbook Guide |
-| https://www.redhat.com/en/topics/automation/what-is-ansible | Ansible Overview |
+
+
+## Advantages
+
+- Agentless deployment
+- Repeatable and consistent releases
+- Easy rollback support
+- Scales well across environments
+- Strong CI/CD integration
+
+---
+
+## Disadvantages
+
+- YAML indentation errors can break runs
+- Large playbooks can become complex
+- Not ideal for real-time orchestration
+
+---
+
+## Best Practices
+
+- Use roles for modularity
+- Separate inventories per environment
+- Store secrets in Ansible Vault
+- Use handlers for restarts
+- Enable dry-run (`--check`) mode
+- Maintain idempotent tasks
+- Integrate with CI tools
+
+---
+
+## Conclusion
+
+Ansible-based CD enables **automated, reliable, and repeatable deployments**.  
+When combined with a CI pipeline, Ansible ensures **fast releases, reduced human error, and stable production systems**, making it a strong choice for enterprise DevOps workflows.
 
 ---
