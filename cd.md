@@ -56,17 +56,6 @@ Ansible playbook performs:
 
 ---
 
-### 3. Service Restart / Reload
-- Application or service is restarted using handlers
-- Ensures changes are applied safely
-
----
-
-### 4. Health Check & Validation
-- Application health endpoints are verified
-- Rollback triggered if deployment fails
-
----
 
 ## Ansible Components Used
 
