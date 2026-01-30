@@ -57,20 +57,6 @@ Ansible playbook performs:
 ---
 
 
-## Ansible Components Used
-
-| Component | Purpose |
-|--------|--------|
-| Playbook | Defines deployment logic |
-| Inventory | Target hosts and environments |
-| Roles | Reusable deployment logic |
-| Variables | Environment-specific configs |
-| Handlers | Restart services |
-| Vault | Secure secrets |
-
----
-
-
 
 
 ## Advantages
