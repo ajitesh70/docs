@@ -1,7 +1,8 @@
 # Micro Repository (Micro Repo) – Features & Documentation
 
-## Author
-Ajitesh Singh  
+| Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
+|--------|------------|---------|------------------|-------------|-------------|-------------|
+| Ajitesh Singh | 21-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
 
 ---
 
@@ -122,16 +123,19 @@ While they introduce management overhead, following best practices and strong au
 
 ## Contact Information
 
-**Author:** Ajitesh Singh  
-**Role:** DevOps Engineer  
-**Email:** ajitesh.singh@example.com  
+| Name | Role | Email |
+|------|------|-------|
+| Ajitesh Singh | DevOps Engineer | ajitesh.singh@example.com |
 
 ---
 
 ## References
 
-- Microservices Architecture – Martin Fowler
-- Git Best Practices – Atlassian
-- CI/CD Pipelines – Jenkins Documentation
-- Cloud Native Computing Foundation (CNCF)
+| Source / Link | Description |
+|--------------|-------------|
+| Martin Fowler | Microservices Architecture |
+| Atlassian | Git Best Practices |
+| Jenkins Documentation | CI/CD Pipelines |
+| CNCF | Cloud Native Computing Foundation |
+
 
