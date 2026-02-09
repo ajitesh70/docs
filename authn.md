@@ -1,7 +1,8 @@
 # VCS Authentication (Authn) Strategy – Documentation
 
-## Author
-Ajitesh Singh
+| Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
+|--------|------------|---------|------------------|-------------|-------------|-------------|
+| Ajitesh Singh | 05-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
 
 ---
 
@@ -107,15 +108,18 @@ This approach ensures **maximum security, auditability, and scalability**.
 
 ## Contact Information
 
-**Author:** Ajitesh Singh  
-**Role:** DevOps Engineer  
-**Email:** ajitesh.singh@example.com  
+| Name | Email |
+|------|-------|
+| Ajitesh Singh | ajitesh.singh.snaatak@mygurukulam.co |
 
 ---
 
 ## References
 
-- Git Security Best Practices
-- GitLab Authentication Documentation
-- GitHub Security Documentation
-- NIST Digital Identity Guidelines
+| Link / Source | Description |
+|--------------|-------------|
+| Git Security Best Practices | Secure usage and configuration of Git |
+| GitLab Authentication Documentation | Authentication and access control in GitLab |
+| GitHub Security Documentation | Security features and best practices in GitHub |
+| NIST Digital Identity Guidelines | Standards for digital identity and authentication |
+
