@@ -1,7 +1,8 @@
 # GitOps Strategy – Documentation
 
-## Author
-Ajitesh Singh
+| Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
+|--------|------------|---------|------------------|-------------|-------------|-------------|
+| Ajitesh Singh | 5-02-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
 
 ---
 
@@ -95,20 +96,20 @@ GitOps is adopted to achieve:
 
 Based on security, scalability, and cloud-native best practices, **we will implement the following GitOps strategy**:
 
-### ✅ **Pull-based GitOps Model**
+###  **Pull-based GitOps Model**
 - Git as the single source of truth
 - Argo CD / Flux CD–style continuous reconciliation
 - No direct CI access to production clusters
 
-### ✅ **Declarative Configuration**
+###  **Declarative Configuration**
 - Kubernetes manifests / Helm charts stored in Git
 - Version-controlled and reviewed via Merge Requests
 
-### ✅ **Environment-wise Repositories or Directories**
+###  **Environment-wise Repositories or Directories**
 - Separate configs for dev, staging, and production
 - Controlled promotions via Git commits
 
-### ❌ **What we will not use**
+###  **What we will not use**
 - Manual deployments
 - Direct kubectl access to production
 - Push-based GitOps for production environments
@@ -119,15 +120,17 @@ This strategy ensures **high security, auditability, reliability, and easy rollb
 
 ## Contact Information
 
-**Author:** Ajitesh Singh  
-**Role:** DevOps Engineer  
-**Email:** ajitesh.singh@example.com  
+| Name | Email |
+|------|-------|
+| Ajitesh Singh | ajitesh.singh.snaatak@mygurukulam.co |
 
 ---
 
 ## References
 
-- CNCF GitOps Principles
-- Argo CD Documentation
-- Flux CD Documentation
-- GitOps – Weaveworks
+| Reference | Description |
+|----------|-------------|
+| [CNCF GitOps Principles](https://www.cncf.io/projects/gitops/) | Official GitOps principles defined by CNCF |
+| [Argo CD Documentation](https://argo-cd.readthedocs.io/en/stable/) | GitOps-based continuous delivery for Kubernetes |
+| [Flux CD Documentation](https://fluxcd.io/docs/) | GitOps toolkit for Kubernetes |
+| [GitOps – Weaveworks](https://www.weave.works/technologies/gitops/) | Original GitOps concept by Weaveworks |
