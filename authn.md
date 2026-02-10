@@ -2,7 +2,7 @@
 
 | Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
 |--------|------------|---------|------------------|-------------|-------------|-------------|
-| Ajitesh Singh | 05-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
+| Ajitesh Singh | 05-02-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
 
 ---
 
@@ -65,18 +65,16 @@ Token-based authentication mainly for automation and APIs.
 
 ---
 
+
 ## Advantages and Disadvantages
 
-### Advantages
-- Secure access control
-- Improved traceability and auditability
-- Reduced risk of credential compromise
-- Better integration with enterprise security systems
+| Advantages | Disadvantages |
+|-----------|---------------|
+| Secure access control | Key and token management overhead |
+| Improved traceability and auditability | Initial setup complexity for SSO |
+| Reduced risk of credential compromise | Requires regular credential rotation |
+| Better integration with enterprise security systems | — |
 
-### Disadvantages
-- Key and token management overhead
-- Initial setup complexity for SSO
-- Requires regular credential rotation
 
 ---
 
@@ -116,10 +114,10 @@ This approach ensures **maximum security, auditability, and scalability**.
 
 ## References
 
-| Link / Source | Description |
-|--------------|-------------|
-| Git Security Best Practices | Secure usage and configuration of Git |
-| GitLab Authentication Documentation | Authentication and access control in GitLab |
-| GitHub Security Documentation | Security features and best practices in GitHub |
-| NIST Digital Identity Guidelines | Standards for digital identity and authentication |
+| Reference | Description |
+|----------|-------------|
+| [Git Security Best Practices](https://git-scm.com/book/en/v2/Git-Tools-Signing-Your-Work) | Secure usage and authentication best practices in Git |
+| [GitLab Authentication Documentation](https://docs.gitlab.com/ee/user/profile/account/) | Authentication and access control mechanisms in GitLab |
+| [GitHub Security Documentation](https://docs.github.com/en/authentication) | GitHub authentication methods and security features |
+| [NIST Digital Identity Guidelines (SP 800-63)](https://pages.nist.gov/800-63-3/) | Industry standards for digital identity and authentication |
 
