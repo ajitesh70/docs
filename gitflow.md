@@ -67,7 +67,8 @@ GitLab Flow is chosen to address challenges faced with complex branching models.
 ## Workflow Diagram
 
 
-::contentReference[oaicite:0]{index=0}
+<img width="891" height="399" alt="image" src="https://github.com/user-attachments/assets/a011767f-2f4d-4518-ac42-8344c9f6eaa7" />
+
 
 
 ---
