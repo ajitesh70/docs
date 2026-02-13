@@ -255,9 +255,10 @@ Test routes:
 ## Salary list
 <img width="1920" height="1080" alt="Screenshot (394)" src="https://github.com/user-attachments/assets/5a5a73e5-19d8-461d-a3e1-8b33104786c0" />
 
-##
+## Attendance add
 <img width="1920" height="1080" alt="Screenshot (396)" src="https://github.com/user-attachments/assets/374189e2-b939-48a1-adde-7ff3d45e85c2" />
 
+## Employee registration
 <img width="1920" height="1080" alt="Screenshot (398)" src="https://github.com/user-attachments/assets/8f622db1-c764-42d0-b6cd-8d8b5c967aae" />
 
 
