@@ -235,7 +235,8 @@ If JSON appears → proxy configuration is correct.
 ```
 http://<PUBLIC-IP>
 ```
-<img width="1920" height="1080" alt="Screenshot (325)" src="https://github.com/user-attachments/assets/00a1ed79-a994-4994-86a6-151ecaed88f6" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/91d82fc4-94d1-4b9f-afa2-de449d9bd2ce" />
+
 
 
 Test routes:
@@ -245,8 +246,19 @@ Test routes:
 /attendance-list
 /salary-list
 ```
-<img width="1920" height="1080" alt="Screenshot (311)" src="https://github.com/user-attachments/assets/fb686740-8e79-436a-bf81-d19027cbed2c" />
-<img width="1920" height="1080" alt="Screenshot (312)" src="https://github.com/user-attachments/assets/9df5d880-2df4-432a-9edb-97ccfc41cd09" />
+## Employee list
+<img width="1920" height="1080" alt="Screenshot (397)" src="https://github.com/user-attachments/assets/fc584930-a270-4d86-80e7-2a796f835682" />
+
+## Attendance list
+<img width="1920" height="1080" alt="Screenshot (395)" src="https://github.com/user-attachments/assets/a7847e0d-4787-4f51-bc25-0aed5f97b376" />
+
+## Salary list
+<img width="1920" height="1080" alt="Screenshot (394)" src="https://github.com/user-attachments/assets/5a5a73e5-19d8-461d-a3e1-8b33104786c0" />
+
+##
+<img width="1920" height="1080" alt="Screenshot (396)" src="https://github.com/user-attachments/assets/374189e2-b939-48a1-adde-7ff3d45e85c2" />
+
+<img width="1920" height="1080" alt="Screenshot (398)" src="https://github.com/user-attachments/assets/8f622db1-c764-42d0-b6cd-8d8b5c967aae" />
 
 
 ---
