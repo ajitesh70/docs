@@ -235,6 +235,8 @@ If JSON appears → proxy configuration is correct.
 ```
 http://<PUBLIC-IP>
 ```
+<img width="1920" height="1080" alt="Screenshot (325)" src="https://github.com/user-attachments/assets/00a1ed79-a994-4994-86a6-151ecaed88f6" />
+
 
 Test routes:
 
@@ -243,6 +245,9 @@ Test routes:
 /attendance-list
 /salary-list
 ```
+<img width="1920" height="1080" alt="Screenshot (311)" src="https://github.com/user-attachments/assets/fb686740-8e79-436a-bf81-d19027cbed2c" />
+<img width="1920" height="1080" alt="Screenshot (312)" src="https://github.com/user-attachments/assets/9df5d880-2df4-432a-9edb-97ccfc41cd09" />
+<img width="1920" height="1080" alt="Screenshot (313)" src="https://github.com/user-attachments/assets/401a378c-c566-41ea-9174-dcea0e18d762" />
 
 ---
 
