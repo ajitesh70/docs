@@ -1,7 +1,8 @@
 # Branching Strategy – GitLab Flow
 
-## Author
-Ajitesh Singh
+| Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
+|--------|------------|---------|------------------|-------------|-------------|-------------|
+| Ajitesh Singh | 21-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
 
 ---
 
