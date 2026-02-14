@@ -6,16 +6,17 @@ Ajitesh Singh
 ---
 
 ## Table of Contents
-- Introduction
-- Why GitLab Flow
-- GitLab Flow Workflow
-- Workflow Diagram
-- Advantages
-- Disadvantages
-- Best Practices
-- Conclusion
-- Contact Information
-- References
+
+- [Introduction](#introduction)
+- [Why GitLab Flow](#why-gitlab-flow)
+- [GitLab Flow Workflow](#gitlab-flow-workflow)
+- [Workflow Diagram](#workflow-diagram)
+- [Advantages](#advantages)
+- [Disadvantages](#disadvantages)
+- [Best Practices](#best-practices)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
+- [References](#references)
 
 ---
 
@@ -67,7 +68,8 @@ GitLab Flow is chosen to address challenges faced with complex branching models.
 ## Workflow Diagram
 
 
-<img width="891" height="399" alt="image" src="https://github.com/user-attachments/assets/a011767f-2f4d-4518-ac42-8344c9f6eaa7" />
+<img width="927" height="420" alt="image" src="https://github.com/user-attachments/assets/7211e405-c684-4084-b8d9-31ec574365c5" />
+
 
 
 
@@ -117,14 +119,16 @@ It is best suited for teams practicing **continuous integration and continuous d
 
 ## Contact Information
 
-**Author:** Ajitesh Singh  
-**Role:** DevOps Engineer  
-**Email:** ajitesh.singh@example.com  
+| Name | Email |
+|------|-------|
+| Ajitesh Singh | ajitesh.singh.snaatak@mygurukulam.co |
 
 ---
 
 ## References
 
-- GitLab Official Documentation – GitLab Flow
-- Atlassian Git Branching Strategies
-- CI/CD Best Practices – DevOps Handbook
+| Resource | Link |
+|----------|------|
+| GitLab Official Documentation – GitLab Flow | [docs.gitlab.com](https://docs.gitlab.com/ee/topics/gitlab_flow.html) |
+| Atlassian Git Branching Strategies | [atlassian.com/git/tutorials](https://www.atlassian.com/git/tutorials/comparing-workflows) |
+| CI/CD Best Practices – DevOps Handbook | [itrevolution.com](https://itrevolution.com/the-devops-handbook/) |
