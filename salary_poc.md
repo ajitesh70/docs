@@ -2,7 +2,7 @@
 
 | Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
 |--------|------------|---------|------------------|-------------|-------------|-------------|
-| Ajitesh Singh | 5-02-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
+| Ajitesh Singh | 5-02-2026 | v1.1 | Ajitesh Singh | Divya Mishra | Faisal | Mahesh |
 ---
 
 ##  Project Overview
@@ -21,25 +21,9 @@ The service:
 
 ---
 
-##  Role
-
-**DevOps Engineer**
-
-Responsible for:
-
-- Application build & packaging
-- Infrastructure configuration (EC2, Security Groups)
-- Reverse proxy setup (Nginx)
-- Database & cache connectivity
-- Deployment verification
-- Troubleshooting networking issues
-- Monitoring & health validation
-
----
-
 ##  Architecture Overview
 
-### 🔹 Components
+###  Components
 
 | Component     | Purpose |
 |--------------|----------|
@@ -49,7 +33,7 @@ Responsible for:
 | Nginx        | Reverse Proxy |
 | AWS EC2      | Hosting Infrastructure |
 
-### 🔹 High-Level Flow
+###  High-Level Flow
 
 Client → Nginx → Spring Boot (Salary API) → Cassandra  
                                      ↘ Redis (Cache)
@@ -137,7 +121,7 @@ git clone <repository-url>
 cd salary-api
 ```
 ##  Build & Run Instructions
-### 🔹 Step 1: Build the Application
+###  Step 1: Build the Application
 
 ⚠ Use Maven Wrapper (No need to install Maven)
 ```
@@ -148,7 +132,7 @@ chmod +x mvnw
 <img width="831" height="170" alt="Screenshot 2026-02-11 191520" src="https://github.com/user-attachments/assets/a912d183-1c88-482f-99d4-f1d7508467ce" />
 
 
-### 🔹 Step 2: Run the Application
+###  Step 2: Run the Application
 
 ```bash
 java -jar target/salary-0.1.0-RELEASE.jar
@@ -160,14 +144,14 @@ java -jar target/salary-0.1.0-RELEASE.jar
 
 ##  Verification Steps
 
-### 🔹 Check Running Port
+###  Check Running Port
 
 ```bash
 ss -lntp | grep 8080
 ```
 <img width="1632" height="81" alt="Screenshot 2026-02-11 200812" src="https://github.com/user-attachments/assets/18f60e64-ad37-4b8d-a983-e953ff11277f" />
 
-### 🔹 Health Check
+###  Health Check
 
 ```bash
 curl http://localhost:8080/actuator/health
@@ -182,7 +166,7 @@ curl http://localhost:8080/actuator/health
 }
 ```
 
-### 🔹 Fetch Salary Records
+###  Fetch Salary Records
 
 ```bash
 curl http://localhost:8080/api/v1/salary/search/all
@@ -191,7 +175,7 @@ curl http://localhost:8080/api/v1/salary/search/all
 
 ---
 
-## 📡 API Endpoints
+##  API Endpoints
 
 | Endpoint | Method | Description |
 |----------|--------|------------|
@@ -243,12 +227,12 @@ curl http://localhost:8080/api/v1/salary/search/all
 
 ##  POC Result
 
-✅ Salary API successfully built  
-✅ Cassandra connected  
-✅ Redis connected  
-✅ Health endpoint responding  
-✅ Salary data fetch working  
-✅ Ready for frontend integration  
+- Salary API successfully built  
+- Cassandra connected  
+- Redis connected  
+- Health endpoint responding  
+- Salary data fetch working  
+- Ready for frontend integration  
 
 ---
 
@@ -262,20 +246,16 @@ curl http://localhost:8080/api/v1/salary/search/all
 
 ---
 
-##  Conclusion
+## Conclusion
 
-This POC proves that the Salary Microservice:
-
-- Runs independently
-- Connects to distributed storage systems
-- Is production-deployable on AWS
-- Can scale independently in a microservices architecture
+This POC demonstrates that the Salary Microservice runs independently, integrates with distributed storage systems, and is fully deployable in a production-ready AWS environment. It also validates that the service can scale independently within a microservices architecture.
 
 ---
 
-## 👤 Author
+## Contact Information
 
-**Ajitesh Singh**  
-Role: DevOps Engineer
+| Name | Email |
+|------|-------|
+| Ajitesh Singh | ajitesh.singh.snaatak@mygurukulam.co |
 
 ---
