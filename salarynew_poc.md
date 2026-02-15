@@ -8,19 +8,18 @@
 
 # Table of Contents
 
-1. [Purpose](#purpose)
-2. [Project Overview](#project-overview)
-3. [Architecture Overview](#architecture-overview)
-4. [Prerequisites](#prerequisites)
-5. [Dependencies](#dependencies)
-6. [Configuration Changes](#configuration-changes)
-7. [Build & Run Instructions](#build--run-instructions)
-8. [Verification](#verification)
-9. [API Endpoints](#api-endpoints)
-10. [Deployment Details](#deployment-details)
-11. [Troubleshooting](#troubleshooting)
-12. [Conclusion](#conclusion)
-
+1. [Purpose](#purpose)  
+2. [Project Overview](#project-overview)  
+3. [Architecture Overview](#architecture-overview)  
+4. [Prerequisites Installation](#prerequisites-installation)  
+5. [Application.yaml Configuration](#applicationyaml-configuration)  
+6. [Build & Run Instructions](#build--run-instructions)  
+7. [Systemd Service Configuration ](#systemd-service-configuration)  
+8. [Verification Steps](#verification-steps)  
+9. [API Endpoints](#api-endpoints)  
+10. [Troubleshooting](#troubleshooting)  
+11. [Conclusion](#conclusion)  
+12. [Contact Information](#contact-information)
 ---
 
 # Purpose
@@ -174,7 +173,7 @@ java -jar target/salary-0.1.0-RELEASE.jar
 
 ---
 
-## Systemd Service Configuration (Production Setup)
+## Systemd Service Configuration 
 
 To run the Salary API as a background service on AWS EC2:
 
