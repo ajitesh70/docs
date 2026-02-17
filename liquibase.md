@@ -90,45 +90,45 @@ Liquibase is a database schema migration tool that manages and tracks database c
 
 #### Step 1: Verify java (mandatory)
 - Java version check  
-bash
+```bash
 sudo apt install openjdk-17-jdk -y
 sudo yum install java-17-openjdk -y
 java --version
-
+```
 <img width="1379" height="284" alt="image" src="https://github.com/user-attachments/assets/66d85b7f-78be-4bba-a42f-9ba53e349660" />
 
 - Add Liquibase repository
-bash
+```bash
 sudo apt update
 sudo apt install wget gnupg -y
 wget -qO- https://repo.liquibase.com/liquibase.asc | sudo gpg --dearmor -o /usr/share/keyrings/liquibase-archive-keyring.gpg
 echo "deb [signed-by=/usr/share/keyrings/liquibase-archive-keyring.gpg] https://repo.liquibase.com stable main" | sudo tee /etc/apt/sources.list.d/liquibase.list
-
+```
 
 <img width="1494" height="89" alt="image" src="https://github.com/user-attachments/assets/caf3a60d-fd01-4509-aa4c-2f4b5b9b63d9" />
 
 
 - Liquibase install
-bash
+```bash
 sudo apt update
 sudo apt install liquibase -y
 liquibase --version
-
+```
 
 <img width="1060" height="329" alt="image" src="https://github.com/user-attachments/assets/4dd0e79c-286c-4941-b91c-0ee39e589e50" />
 
 ---
 
 ### 4.2 Database Configuration (PostgreSQL)
-bash
+```bash
 sudo apt update
 sudo apt install postgresql postgresql-contrib -y
-
+```
 <img width="1378" height="220" alt="image" src="https://github.com/user-attachments/assets/93182a8d-cfee-4c23-b7b9-d7d7701c1fd5" />
 
-bash
+```bash
 sudo systemctl status postgresql
-
+```
 <img width="866" height="205" alt="image" src="https://github.com/user-attachments/assets/2b3bd179-32d9-4a21-9eb8-248a667ae17b" />
 
 
@@ -136,14 +136,14 @@ sudo systemctl status postgresql
 
 #### Step 1: Switch to postgres user
 
-bash
+```bash
 sudo -i -u postgres
 psql
 CREATE DATABASE liquibase_poc;
 CREATE USER liquibase_user WITH PASSWORD 'StrongPassword123';
 GRANT ALL PRIVILEGES ON DATABASE liquibase_poc TO liquibase_user;
 \q
-
+```
 
 <img width="747" height="234" alt="image" src="https://github.com/user-attachments/assets/b221c236-5e5e-411f-8b52-78d0b0bf8000" />
 
@@ -155,7 +155,8 @@ GRANT ALL PRIVILEGES ON DATABASE liquibase_poc TO liquibase_user;
 - Use unique id and author
 
 ### sample file
-sample file
+
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog
         xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
@@ -177,21 +178,21 @@ sample file
     </changeSet>
 
 </databaseChangeLog>
-
+```
 
 <img width="907" height="418" alt="image" src="https://github.com/user-attachments/assets/0b662067-cab4-4ac6-b200-d19a9b8a0bb4" />
 
-bash 
+```bash 
 nano ~/liquibase-poc/liquibase.properties
-
-bash
+```
+```bash
 url=jdbc:postgresql://localhost:5432/liquibase_poc
 username=lbuser
 password=lbpass
 driver=org.postgresql.Driver
 changeLogFile=db/changelog/db.changelog-master.xml
 logLevel=info
-
+```
 
 <img width="676" height="186" alt="image" src="https://github.com/user-attachments/assets/d479544e-6ea8-4ccf-bac0-9908292e0432" />
 
@@ -200,9 +201,9 @@ logLevel=info
 ### 4.5 Apply Database Changes
 
 - Run Liquibase update command
-bash
+```bash
 liquibase update
-
+```
 <img width="1248" height="811" alt="image" src="https://github.com/user-attachments/assets/cad10a6c-0160-4188-8438-08655513cdee" />
 
 - Observe execution logs
@@ -226,9 +227,9 @@ liquibase update
 
 ### Backup Strategy
 - Take full DB backup before execution
-bash
+```bash
 pg_dump -h localhost -U lbuser liquibase_poc > liquibase_poc_backup.sql
-
+```
 <img width="978" height="117" alt="image" src="https://github.com/user-attachments/assets/34ddf5c5-d7cd-4a75-a355-08fa37f195fb" />
 
 - Enable automated backups in production
@@ -249,9 +250,9 @@ pg_dump -h localhost -U lbuser liquibase_poc > liquibase_poc_backup.sql
 
 <img width="512" height="191" alt="image" src="https://github.com/user-attachments/assets/a805f33b-3b8a-4f41-8f7d-1a947f7f8159" />
 
-bash
+```bash
 liquibase update
-
+```
 <img width="496" height="230" alt="image" src="https://github.com/user-attachments/assets/a1891ae2-ceb3-40be-8ee4-729a546937b8" />
 
 
