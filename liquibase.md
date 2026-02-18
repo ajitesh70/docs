@@ -20,13 +20,11 @@
    - 4.3 [Create Database and User](#43-create-database-and-user)  
    - 4.4 [Create Changelog](#44-create-changelog)  
    - 4.5 [Apply Database Changes](#45-apply-database-changes)  
-   - 4.6 [Verify Changes](#46-verify-changes)  
-5. [Backup and Rollback Strategy](#5-backup-and-rollback-strategy)  
-6. [Best Practices](#6-best-practices)  
-7. [POC Validation Checklist](#7-poc-validation-checklist)  
-8. [Conclusion](#8-conclusion)  
-9. [Contact Information](#9-contact-information)  
-10. [References](#10-references)  
+5. [Best Practices](#6-best-practices)  
+6. [POC Validation Checklist](#7-poc-validation-checklist)  
+7. [Conclusion](#8-conclusion)  
+8. [Contact Information](#9-contact-information)  
+9. [References](#10-references)  
 ---
 
 ## 1. Introduction
@@ -57,7 +55,9 @@ Liquibase works using *changelog files* that describe database changes in a stru
 
 ## 3. Liquibase Architecture
 
-<img width="980" height="461" alt="image" src="https://github.com/user-attachments/assets/e40e8302-dffc-4245-9bbd-4628d84d1afa" />
+![WhatsApp Image 2026-02-17 at 9 31 07 PM](https://github.com/user-attachments/assets/2f7564e6-33ec-4954-bf62-c12fe3763f28)
+
+
 
 ## Liquibase Architecture (Short Overview)
 
@@ -95,7 +95,10 @@ sudo apt install openjdk-17-jdk -y
 sudo yum install java-17-openjdk -y
 java --version
 ```
-<img width="1379" height="284" alt="image" src="https://github.com/user-attachments/assets/66d85b7f-78be-4bba-a42f-9ba53e349660" />
+<img width="1731" height="350" alt="Screenshot 2026-02-18 143758" src="https://github.com/user-attachments/assets/588a622b-6cb8-4603-8eb6-78e052ad6aeb" />
+
+
+
 
 - Add Liquibase repository
 ```bash
@@ -105,7 +108,11 @@ wget -qO- https://repo.liquibase.com/liquibase.asc | sudo gpg --dearmor -o /usr/
 echo "deb [signed-by=/usr/share/keyrings/liquibase-archive-keyring.gpg] https://repo.liquibase.com stable main" | sudo tee /etc/apt/sources.list.d/liquibase.list
 ```
 
-<img width="1494" height="89" alt="image" src="https://github.com/user-attachments/assets/caf3a60d-fd01-4509-aa4c-2f4b5b9b63d9" />
+<img width="1882" height="107" alt="Screenshot 2026-02-18 145905" src="https://github.com/user-attachments/assets/5e6bc66a-acaf-48ca-8b7a-ff29f788e2ab" />
+
+
+
+
 
 
 - Liquibase install
@@ -115,7 +122,9 @@ sudo apt install liquibase -y
 liquibase --version
 ```
 
-<img width="1060" height="329" alt="image" src="https://github.com/user-attachments/assets/4dd0e79c-286c-4941-b91c-0ee39e589e50" />
+<img width="1313" height="420" alt="Screenshot 2026-02-18 145953" src="https://github.com/user-attachments/assets/18bd1de7-c12e-4490-8b42-7452780d444f" />
+
+
 
 ---
 
@@ -124,12 +133,17 @@ liquibase --version
 sudo apt update
 sudo apt install postgresql postgresql-contrib -y
 ```
-<img width="1378" height="220" alt="image" src="https://github.com/user-attachments/assets/93182a8d-cfee-4c23-b7b9-d7d7701c1fd5" />
+
+<img width="1725" height="268" alt="Screenshot 2026-02-18 150128" src="https://github.com/user-attachments/assets/4d939b04-aee8-46f7-b8b0-60978061d724" />
+
+
 
 ```bash
 sudo systemctl status postgresql
 ```
-<img width="866" height="205" alt="image" src="https://github.com/user-attachments/assets/2b3bd179-32d9-4a21-9eb8-248a667ae17b" />
+
+<img width="1073" height="247" alt="Screenshot 2026-02-18 150157" src="https://github.com/user-attachments/assets/0c402d95-9a4f-4419-a9c2-bd39c7632926" />
+
 
 
 ### 4.3 Create Database and User
@@ -145,7 +159,9 @@ GRANT ALL PRIVILEGES ON DATABASE liquibase_poc TO liquibase_user;
 \q
 ```
 
-<img width="747" height="234" alt="image" src="https://github.com/user-attachments/assets/b221c236-5e5e-411f-8b52-78d0b0bf8000" />
+<img width="912" height="267" alt="Screenshot 2026-02-18 150226" src="https://github.com/user-attachments/assets/c4b2de16-7c0f-42e5-8fb2-7048021e3ef9" />
+
+
 
 
 ### 4.4 Create Changelog
@@ -180,7 +196,9 @@ GRANT ALL PRIVILEGES ON DATABASE liquibase_poc TO liquibase_user;
 </databaseChangeLog>
 ```
 
-<img width="907" height="418" alt="image" src="https://github.com/user-attachments/assets/0b662067-cab4-4ac6-b200-d19a9b8a0bb4" />
+<img width="1080" height="503" alt="Screenshot 2026-02-18 150255" src="https://github.com/user-attachments/assets/ea73573b-a4f8-44ba-a525-b4db537bd21f" />
+
+
 
 ```bash 
 nano ~/liquibase-poc/liquibase.properties
@@ -194,7 +212,9 @@ changeLogFile=db/changelog/db.changelog-master.xml
 logLevel=info
 ```
 
-<img width="676" height="186" alt="image" src="https://github.com/user-attachments/assets/d479544e-6ea8-4ccf-bac0-9908292e0432" />
+<img width="838" height="225" alt="Screenshot 2026-02-18 150633" src="https://github.com/user-attachments/assets/0bf66e3b-2866-4496-a2a7-281c2b75f0af" />
+
+
 
 ---
 
@@ -204,59 +224,21 @@ logLevel=info
 ```bash
 liquibase update
 ```
-<img width="1248" height="811" alt="image" src="https://github.com/user-attachments/assets/cad10a6c-0160-4188-8438-08655513cdee" />
+<img width="1326" height="855" alt="Screenshot 2026-02-18 150654" src="https://github.com/user-attachments/assets/76ed3f25-6910-4130-a5ec-9d7673b34557" />
+
+
 
 - Observe execution logs
 - Verify metadata tables creation
 
-<img width="1010" height="402" alt="image" src="https://github.com/user-attachments/assets/00da4813-a54e-4be9-b156-7b8033e60b2e" />
+<img width="1250" height="486" alt="Screenshot 2026-02-18 150719" src="https://github.com/user-attachments/assets/643b250b-7c63-41f6-acbc-fdcde92a4224" />
+
+
 
 ---
 
-### 4.6 Verify Changes
-
-- Validate table/schema changes
-- Query database objects
-- Confirm applied changes
-
-<img width="975" height="236" alt="image" src="https://github.com/user-attachments/assets/b7b2ef1e-40ac-403d-9eab-ca0e56a8fc26" />
-
----
-
-## 5. Backup and Rollback Strategy
-
-### Backup Strategy
-- Take full DB backup before execution
-```bash
-pg_dump -h localhost -U lbuser liquibase_poc > liquibase_poc_backup.sql
-```
-<img width="978" height="117" alt="image" src="https://github.com/user-attachments/assets/34ddf5c5-d7cd-4a75-a355-08fa37f195fb" />
-
-- Enable automated backups in production
-- Store backups securely
-<img width="727" height="408" alt="image" src="https://github.com/user-attachments/assets/9c73f9e0-7a56-4ad6-a222-22d85a67dc39" />
-<img width="698" height="488" alt="image" src="https://github.com/user-attachments/assets/55026608-b335-4668-bf18-5a632837674f" />
-<img width="829" height="163" alt="image" src="https://github.com/user-attachments/assets/6afcfd76-b309-4e22-a60e-85b530b553a7" />
 
 
-
-### Rollback Strategy
-- Use rollback tags or rollback count
-<img width="1361" height="889" alt="image" src="https://github.com/user-attachments/assets/61050082-3cc4-4250-8a60-752c8eac695b" />
-
-
-- Define rollback logic in changesets
-<img width="878" height="567" alt="image" src="https://github.com/user-attachments/assets/657f9214-8f24-4562-9862-37ae2932643a" />
-
-<img width="512" height="191" alt="image" src="https://github.com/user-attachments/assets/a805f33b-3b8a-4f41-8f7d-1a947f7f8159" />
-
-```bash
-liquibase update
-```
-<img width="496" height="230" alt="image" src="https://github.com/user-attachments/assets/a1891ae2-ceb3-40be-8ee4-729a546937b8" />
-
-
----
 
 ## 6. Best Practices
 
