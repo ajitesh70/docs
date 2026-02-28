@@ -124,6 +124,12 @@ Developer pushes code
 └──────────────────────┘
 ```
 
+
+<img width="1228" height="668" alt="image" src="https://github.com/user-attachments/assets/694b9948-a819-41de-8aa2-978f95b39a47" />
+
+
+
+
 A **green build** means all stages passed. The code is safe to review, merge, or promote to the next pipeline stage (Continuous Delivery). A **red build** blocks the merge and the developer is immediately notified to investigate.
 
 ---
