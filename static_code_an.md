@@ -1,7 +1,29 @@
 # Proof of Concept (POC) – Static Code Analysis in Java CI
 
-> **Task:** Static Code Analysis
-> **Stack:** Java · Spring Boot · Maven · JaCoCo · SonarQube
+---
+
+| Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
+|--------|------------|---------|-----------------|-------------|-------------|-------------|
+| Ajitesh Singh | 05-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
+
+---
+
+## Table of Contents
+
+- [Objective](#objective)
+- [Environment Setup](#environment-setup)
+  - [Prerequisites](#prerequisites)
+  - [1. Start SonarQube Server](#1-start-sonarqube-server)
+  - [2. Generate a SonarQube Token](#2-generate-a-sonarqube-token)
+- [Project Structure](#project-structure)
+- [Step 1 – Clean Build & Run Unit Tests](#step-1--clean-build--run-unit-tests)
+- [Step 2 – Run Static Code Analysis](#step-2--run-static-code-analysis-sonarqube)
+- [Step 3 – View Analysis Results](#step-3--view-analysis-results)
+- [POC Results](#poc-results)
+- [CI Workflow Summary](#ci-workflow-summary)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
+- [References](#references)
 
 ---
 
@@ -61,7 +83,7 @@ export SONAR_TOKEN=your_generated_token
 
 ## Project Structure
 
-Spring Boot Java microservice configured with:
+Java microservice configured with:
 
 ```
 salary-api/
@@ -232,4 +254,21 @@ Static Code Analysis is a **critical component** of any modern Java CI pipeline.
 
 ---
 
-*Part of the Static Code Analysis documentation series · Platform Engineering Team*
+## Contact Information
+
+| Name | Email |
+|------|-------|
+| Ajitesh Singh | ajitesh.singh.snaatak@mygurukulam.co |
+
+---
+
+## References
+
+| Title | Link |
+|---|---|
+| SonarQube Official Documentation | https://docs.sonarsource.com/sonarqube/latest/ |
+| JaCoCo Maven Plugin Documentation | https://www.jacoco.org/jacoco/trunk/doc/maven.html |
+| SonarQube Maven Scanner | https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner-for-maven/ |
+| Maven Official Documentation | https://maven.apache.org/guides/index.html |
+| OWASP — Static Analysis Tools | https://owasp.org/www-community/Source_Code_Analysis_Tools |
+| SonarQube Quality Gates | https://docs.sonarsource.com/sonarqube/latest/user-guide/quality-gates/ |
