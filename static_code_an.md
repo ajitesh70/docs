@@ -4,7 +4,7 @@
 
 | Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
 |--------|------------|---------|-----------------|-------------|-------------|-------------|
-| Ajitesh Singh | 05-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
+| Ajitesh Singh | 28-02-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
 
 ---
 
@@ -58,6 +58,7 @@ Start SonarQube manually from the installation directory:
 cd /path/to/sonarqube/bin/linux-x86-64
 ./sonar.sh start
 ```
+<img width="867" height="133" alt="image" src="https://github.com/user-attachments/assets/117134b9-512d-47c0-b51e-27ee71852c42" />
 
 Verify SonarQube is running by navigating to:
 
@@ -78,6 +79,7 @@ http://localhost:9000
 ```bash
 export SONAR_TOKEN=your_generated_token
 ```
+<img width="923" height="31" alt="image" src="https://github.com/user-attachments/assets/f50ae857-daeb-4a18-a692-1dc55a2f97b6" />
 
 ---
 
@@ -132,6 +134,7 @@ Run the Maven build with test execution:
 ```bash
 ./mvnw clean verify -Dtest=\!SalaryApplicationTests
 ```
+<img width="1106" height="177" alt="image" src="https://github.com/user-attachments/assets/3f5813d7-7df7-450d-9b7b-7eec66c4305a" />
 
 This command will:
 
@@ -154,6 +157,7 @@ Execute the Sonar analysis:
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.login=$SONAR_TOKEN
 ```
+<img width="1096" height="263" alt="image" src="https://github.com/user-attachments/assets/ea4d1a78-7ceb-4f0b-b9b3-9a25f5ccf32f" />
 
 This performs:
 
@@ -173,6 +177,7 @@ Open the SonarQube dashboard:
 ```
 http://localhost:9000
 ```
+<img width="1442" height="691" alt="image" src="https://github.com/user-attachments/assets/9c714237-bda4-48cf-b510-f0b1162377e0" />
 
 Navigate to **Projects → salary-api** to review:
 
@@ -189,6 +194,8 @@ Navigate to **Projects → salary-api** to review:
 ---
 
 ## POC Results
+
+<img width="1273" height="629" alt="image" src="https://github.com/user-attachments/assets/c509c9b2-1356-48de-9c4f-c2068cabc24a" />
 
 The following results were captured from the SonarQube dashboard after running the full analysis on the `salary-api` project (branch: `main`).
 
@@ -211,33 +218,9 @@ The following results were captured from the SonarQube dashboard after running t
 
 ## CI Workflow Summary
 
-```
-Developer pushes code
-         |
-         v
-Maven build triggered
-  ./mvnw clean verify
-         |
-         v
-Unit tests executed
-  (JUnit / Mockito)
-         |
-         v
-JaCoCo generates coverage report
-  target/site/jacoco/index.html
-         |
-         v
-SonarQube performs static analysis
-  Bugs · Smells · Vulnerabilities · Coverage
-         |
-         v
-Quality Gate evaluated
-         |
-    +----+----+
-    |         |
-  PASS       FAIL
-Merge OK   Fix Issues
-```
+<img width="676" height="497" alt="Screenshot 2026-03-01 122615" src="https://github.com/user-attachments/assets/b155018b-e207-4c57-8589-c9a01215032f" />
+
+
 
 ---
 
