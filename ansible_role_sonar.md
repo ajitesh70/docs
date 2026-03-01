@@ -1,40 +1,67 @@
-# Proof of Concept (POC)
-## Software Configuration – Ansible Role to Setup SonarQube
+# Proof of Concept (POC) – Ansible Role to Setup SonarQube
 
 ---
 
-# 1. Objective
-
-To automate the installation and configuration of SonarQube using Ansible role-based structure on an Ubuntu 22.04 server.
-
-The POC demonstrates Infrastructure as Code (IaC) principles and configuration management automation.
+| Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
+|--------|------------|---------|-----------------|-------------|-------------|-------------|
+| Ajitesh Singh | 05-01-2026 | v1 | Ajitesh Singh | Priyanshu | Faisal | Mahesh |
 
 ---
 
-# 2. Environment Details
+## Table of Contents
 
-- OS: Ubuntu 22.04
-- Instance Type: t3.medium (4GB RAM recommended)
-- Automation Tool: Ansible
-- Application: SonarQube 10.3
-- Database: PostgreSQL (local)
+- [Objective](#objective)
+- [Environment Details](#environment-details)
+- [Architecture](#architecture)
+- [Project Structure](#project-structure)
+- [Implementation Steps](#implementation-steps)
+- [Configuration Changes Implemented](#configuration-changes-implemented)
+- [Execution](#execution)
+- [Verification](#verification)
+- [Challenges Faced](#challenges-faced)
+- [Limitations](#limitations)
+- [Future Improvements](#future-improvements)
+- [Conclusion](#conclusion)
+- [Contact Information](#contact-information)
+- [References](#references)
 
 ---
 
-# 3. Architecture (POC Level)
+## Objective
 
-Single Node Deployment:
+To automate the installation and configuration of SonarQube using an Ansible role-based structure on an Ubuntu 22.04 server. This POC demonstrates Infrastructure as Code (IaC) principles and configuration management automation.
 
+---
+
+## Environment Details
+
+| Component | Details |
+|---|---|
+| OS | Ubuntu 22.04 |
+| Instance Type | t3.medium (4GB RAM recommended) |
+| Automation Tool | Ansible |
+| Application | SonarQube 10.3 |
+| Database | PostgreSQL (local) |
+
+---
+
+## Architecture
+
+Single Node Deployment (POC Level):
+
+```
 EC2 Server
  ├── OpenJDK 17
  ├── PostgreSQL
  ├── SonarQube
  └── systemd Service
+```
 
 ---
 
-# 4. Project Structure
+## Project Structure
 
+```
 sonar-ansible/
 ├── inventory.ini
 ├── playbook.yml
@@ -45,160 +72,174 @@ sonar-ansible/
     ├── tasks/
     ├── templates/
     └── vars/
+```
 
 ---
 
-# 5. Implementation Steps
+## Implementation Steps
 
-## Step 1: Create Ansible Role
+### Step 1 – Create Ansible Role
 
+```bash
 ansible-galaxy init sonarqube
+```
 
 This creates the modular role structure.
 
----
+### Step 2 – Configure Inventory
 
-## Step 2: Configure Inventory
+**File:** `inventory.ini`
 
-inventory.ini:
-
+```ini
 [sonarqube]
 <EC2_PUBLIC_IP> ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/<keyfile>
+```
 
----
+### Step 3 – Configure Playbook
 
-## Step 3: Configure Playbook
+**File:** `playbook.yml`
 
-playbook.yml:
-
----
+```yaml
 - name: Install SonarQube
   hosts: sonarqube
   become: yes
   roles:
     - sonarqube
+```
 
 ---
 
-# 6. Configuration Changes Implemented
+## Configuration Changes Implemented
 
-## 6.1 Installed Required Packages
+### 6.1 Installed Required Packages
 
-- openjdk-17-jdk
-- postgresql
-- python3-psycopg2
-- unzip
-- wget
+- `openjdk-17-jdk`
+- `postgresql`
+- `python3-psycopg2`
+- `unzip`
+- `wget`
 
-Purpose:
-Ensure all runtime and database dependencies are present.
+**Purpose:** Ensure all runtime and database dependencies are present.
 
 ---
 
-## 6.2 PostgreSQL Configuration
+### 6.2 PostgreSQL Configuration
 
-- Started PostgreSQL service
-- Enabled at boot
-- Created database: sonarqube
-- Created user: sonar
+- Started PostgreSQL service and enabled at boot
+- Created database: `sonarqube`
+- Created user: `sonar`
 - Granted database privileges
 
-Purpose:
-SonarQube requires external PostgreSQL backend.
+**Purpose:** SonarQube requires an external PostgreSQL backend.
 
 ---
 
-## 6.3 SonarQube Installation
+### 6.3 SonarQube Installation
 
 - Downloaded SonarQube binary
-- Extracted to /opt
-- Renamed directory to /opt/sonarqube
-- Created dedicated system user: sonar
-- Set directory ownership to sonar
+- Extracted to `/opt`
+- Renamed directory to `/opt/sonarqube`
+- Created dedicated system user: `sonar`
+- Set directory ownership to `sonar`
 
-Purpose:
-Ensure secure execution under non-root user.
+**Purpose:** Ensure secure execution under a non-root user.
 
 ---
 
-## 6.4 SonarQube Configuration
+### 6.4 SonarQube Configuration
 
-Updated sonar.properties with:
+Updated `sonar.properties` with:
 
+```properties
 sonar.jdbc.username=sonar
 sonar.jdbc.password=sonar
 sonar.jdbc.url=jdbc:postgresql://localhost/sonarqube
+```
 
-Purpose:
-Connect SonarQube to PostgreSQL database.
+**Purpose:** Connect SonarQube to the PostgreSQL database.
 
 ---
 
-## 6.5 Created systemd Service
+### 6.5 Created systemd Service
 
-Created:
+**File:** `/etc/systemd/system/sonarqube.service`
 
-/etc/systemd/system/sonarqube.service
+Configured with:
 
-Configured:
-
-- Runs as sonar user
+- Runs as `sonar` user
 - Auto restart enabled
 - File descriptor limits defined
 - Enabled at boot
 
-Purpose:
-Ensure proper service management and restart capability.
+**Purpose:** Ensure proper service management and restart capability.
 
 ---
 
-# 7. Execution
+## Execution
 
-## Test Connectivity
+### Test Connectivity
 
+```bash
 ansible -i inventory.ini sonarqube -m ping
+```
 
-Expected:
-SUCCESS => pong
+Expected output:
 
-## Run Playbook
+```
+<EC2_PUBLIC_IP> | SUCCESS => {
+    "ping": "pong"
+}
+```
 
+### Run Playbook
+
+```bash
 ansible-playbook -i inventory.ini playbook.yml
+```
 
 ---
 
-# 8. Verification
+## Verification
 
-Check service:
+**Check service status:**
 
+```bash
 sudo systemctl status sonarqube
+```
 
-Check listening port:
+**Check listening port:**
 
+```bash
 sudo ss -tulnp | grep 9000
+```
 
-Access web interface:
+**Access web interface:**
 
+```
 http://<EC2_PUBLIC_IP>:9000
+```
 
-Default login:
-Username: admin
-Password: admin
+| Field | Value |
+|---|---|
+| Username | admin |
+| Password | admin |
+
+> Change default credentials immediately after first login.
 
 ---
 
-# 9. Challenges Faced
+## Challenges Faced
 
 - SSH broken pipe due to network instability
-- Need for minimum 4GB RAM
+- Minimum 4GB RAM required for SonarQube to start
 - Public IP changes after instance restart
 - PostgreSQL permission handling
 
 ---
 
-# 10. Limitations of This POC
+## Limitations
 
-- Database deployed on same server
+- Database deployed on the same server
 - No SSL configuration
 - No reverse proxy
 - No Ansible Vault for secrets
@@ -206,7 +247,7 @@ Password: admin
 
 ---
 
-# 11. Future Improvements
+## Future Improvements
 
 - Separate PostgreSQL server
 - Add Nginx reverse proxy
@@ -217,7 +258,7 @@ Password: admin
 
 ---
 
-# 12. Conclusion
+## Conclusion
 
 This POC successfully demonstrates:
 
@@ -228,3 +269,22 @@ This POC successfully demonstrates:
 - Infrastructure as Code principles
 
 The solution is modular, repeatable, and extendable to production environments.
+
+---
+
+## Contact Information
+
+| Name | Email |
+|------|-------|
+| Ajitesh Singh | ajitesh.singh.snaatak@mygurukulam.co |
+
+---
+
+## References
+
+| Title | Link |
+|---|---|
+| SonarQube Official Documentation | https://docs.sonarsource.com/sonarqube/latest/ |
+| Ansible Documentation | https://docs.ansible.com/ |
+| community.postgresql Collection | https://docs.ansible.com/ansible/latest/collections/community/postgresql/ |
+| SonarQube System Requirements | https://docs.sonarsource.com/sonarqube/latest/requirements/requirements/ |
