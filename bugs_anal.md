@@ -58,35 +58,8 @@ Common categories of bugs detected:
 
 ## Workflow
 
-```
-Developer writes & commits code
-              |
-              v
-CI Pipeline triggered
-              |
-              v
-Build & compile source code
-              |
-              v
-Bug analysis tool runs
-  (SpotBugs / SonarQube)
-              |
-              v
-Bugs classified by severity
-  Blocker · Critical · Major · Minor
-              |
-              v
-Quality Gate evaluated
-              |
-         +----+----+
-         |         |
-       PASS       FAIL
-    Merge OK    PR Blocked
-                Fix required
-              |
-              v
-Results on dashboard · Notify developer
-```
+<img width="499" height="732" alt="image" src="https://github.com/user-attachments/assets/2098eed2-a8fd-4fab-8611-ad5565494eaa" />
+
 
 ---
 
