@@ -57,6 +57,9 @@ To demonstrate:
 - Reliability Rating = A
 - Quality Gate = Passed
 
+<img width="1130" height="519" alt="image" src="https://github.com/user-attachments/assets/619a133b-421b-4b17-a70d-c35cd2a2442e" />
+<img width="333" height="144" alt="image" src="https://github.com/user-attachments/assets/97f5c7a3-5e46-46a2-8185-ea2610584118" />
+
 ---
 
 ## Step 1 – Introducing a Controlled Bug
@@ -68,6 +71,7 @@ public void demoBug() {
     int a = 10 / 0;
 }
 ```
+<img width="685" height="212" alt="Screenshot 2026-03-01 211556" src="https://github.com/user-attachments/assets/636a6d7e-9afa-4df8-a2d3-783f92d4dce3" />
 
 This creates a division-by-zero scenario which will always throw an `ArithmeticException` at runtime.
 
@@ -81,6 +85,8 @@ This creates a division-by-zero scenario which will always throw an `ArithmeticE
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.login=$SONAR_TOKEN
 ```
+<img width="1039" height="91" alt="image" src="https://github.com/user-attachments/assets/037264c2-f269-4d33-bf23-380da36dd567" />
+
 
 Maven lifecycle executed:
 
@@ -105,6 +111,7 @@ SonarQube detected the following issue:
 | **Line** | 37 |
 
 ---
+<img width="1144" height="522" alt="image" src="https://github.com/user-attachments/assets/4add053c-59c2-4afe-bf24-39d5a8ef13f0" />
 
 ## Step 4 – Root Cause Analysis
 
@@ -113,12 +120,14 @@ The code performed:
 ```java
 int a = 10 / 0;
 ```
+<img width="1509" height="536" alt="image" src="https://github.com/user-attachments/assets/92ed3032-e612-4b2f-b8ba-c7d9fd92b5d0" />
 
 This always throws:
 
 ```
 ArithmeticException: / by zero
 ```
+<img width="1067" height="281" alt="image" src="https://github.com/user-attachments/assets/060defe1-10b6-46ec-85ad-6b78447280eb" />
 
 **Impact:**
 
@@ -159,6 +168,8 @@ After the fix, the same analysis command was executed again.
 | Bugs | 0 |
 | Reliability Rating | A |
 | Quality Gate | Passed |
+
+<img width="1118" height="524" alt="image" src="https://github.com/user-attachments/assets/9943c1e3-e20a-4373-a50c-130d238e16c6" />
 
 ---
 
