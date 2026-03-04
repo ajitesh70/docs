@@ -120,6 +120,11 @@ This helps verify:
 - What tasks will change
 - Safe execution preview before real deployment
 
+**CI Pipeline Workflow:**
+
+<img width="401" height="621" alt="image" src="https://github.com/user-attachments/assets/26615283-4261-4fd5-9611-6b178fa5225f" />
+
+
 ---
 
 ## Conclusion
