@@ -74,6 +74,8 @@ Clone the `salary-api` project to the local machine:
 git clone https://github.com/<your-org>/salary-api.git
 cd salary-api
 ```
+<img width="1074" height="208" alt="image" src="https://github.com/user-attachments/assets/b1a76853-468b-479a-84e4-ed232073d6a2" />
+
 
 Verify the project structure:
 
@@ -86,12 +88,14 @@ Expected output:
 ```
 mvnw  mvnw.cmd  pom.xml  src/  target/
 ```
+<img width="1281" height="67" alt="image" src="https://github.com/user-attachments/assets/628f0747-ff97-447d-812e-cd716870f487" />
 
 Provide execute permission to the Maven Wrapper:
 
 ```bash
 chmod +x mvnw
 ```
+<img width="752" height="33" alt="Screenshot 2026-03-04 210028" src="https://github.com/user-attachments/assets/3cc934ad-fbce-45b9-a238-1624d95b4230" />
 
 ---
 
@@ -102,7 +106,10 @@ If SonarQube is not installed on your system, follow the official installation g
 | Resource | Link |
 |---|---|
 | SonarQube Installation Guide | https://docs.sonarsource.com/sonarqube/latest/setup-and-upgrade/install-the-server/introduction/ |
-| Ansible Role POC – SonarQube Setup | ./POC-sonarqube-ansible-role.md |
+| Ansible Role POC – SonarQube Setup | [SonarQube Installation Role - GitHub Repository](https://github.com/ajitesh70/sonarqube_installation_role)|
+
+
+---
 
 ---
 
