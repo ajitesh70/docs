@@ -35,12 +35,7 @@
 
 ## Objective
 
-To demonstrate:
-
-- How static analysis detects runtime reliability defects
-- How severity is classified
-- How root cause analysis is performed
-- How bug resolution is verified through re-analysis
+To demonstrate how SonarQube detects runtime reliability defects through static analysis and classifies them by severity. This POC covers the complete bug lifecycle — from detection and root cause analysis to fix implementation and re-analysis verification.
 
 ---
 
