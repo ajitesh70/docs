@@ -134,7 +134,8 @@ This HA setup eliminates single points of failure at the application layer, impr
 
 ### SonarQube HA Workflow Diagram
 
-<img width="600" height="800" alt="96679b9e-b34a-4b5c-97ea-1f00f9546464" src="https://github.com/user-attachments/assets/b5779a00-f751-4c51-ab78-ea4f19d843b8" />
+<img width="552" height="682" alt="image" src="https://github.com/user-attachments/assets/ec57b627-6ad0-4a99-8e4c-db4e6f95c959" />
+
 
 ---
 #### Workflow Explanation
