@@ -107,8 +107,8 @@ Verify the service is running:
 sudo systemctl status sonarqube
 ```
 
-<!-- Attach screenshot: systemctl status output showing active/running -->
-![SonarQube Status](./screenshots/sonarqube-status.png)
+<img width="1541" height="237" alt="Screenshot 2026-03-09 133033" src="https://github.com/user-attachments/assets/60e06338-78f3-41da-9859-791cfc783f8c" />
+
 
 Access the dashboard in your browser:
 
@@ -118,8 +118,8 @@ http://13.61.27.0:9000
 
 Log in with default credentials: `admin / admin`
 
-<!-- Attach screenshot: SonarQube login / dashboard page -->
-![SonarQube Dashboard](./screenshots/sonarqube-dashboard.png)
+<img width="634" height="340" alt="image" src="https://github.com/user-attachments/assets/76511a15-b39d-4621-a11a-e18986824685" />
+
 
 ---
 
@@ -140,11 +140,12 @@ Provide the following details:
 
 Click **Set Up** and generate a project token. Copy and save the token — it will be used in Step 6.
 
-<!-- Attach screenshot: Project creation page with key and name filled -->
-![Create Project](./screenshots/create-project.png)
+<img width="708" height="462" alt="image" src="https://github.com/user-attachments/assets/9d4701fe-87f0-461a-b047-5163d3c9f10b" />
 
-<!-- Attach screenshot: Token generation page -->
-![Generate Token](./screenshots/generate-token.png)
+<img width="461" height="371" alt="image" src="https://github.com/user-attachments/assets/90e99231-ebb1-4523-a5f7-0faa610e5f5e" />
+
+<img width="958" height="438" alt="image" src="https://github.com/user-attachments/assets/2e8c3bd1-490d-4add-b998-ac3c980e0fe4" />
+
 
 ---
 
@@ -156,6 +157,7 @@ On the EC2 instance clone the frontend project:
 git clone https://github.com/OT-MICROSERVICES/frontend.git
 cd frontend
 ```
+<img width="1216" height="129" alt="Screenshot 2026-03-09 132910" src="https://github.com/user-attachments/assets/6e82afc4-30b7-4b88-af74-f6a35f9b667e" />
 
 Verify the project structure:
 
@@ -169,8 +171,8 @@ Expected output:
 src  package.json  public  Dockerfile
 ```
 
-<!-- Attach screenshot: ls output showing project structure -->
-![Project Structure](./screenshots/project-structure.png)
+<img width="1101" height="75" alt="Screenshot 2026-03-09 132941" src="https://github.com/user-attachments/assets/11bbc6a9-c9bf-4953-ad33-65de0b872cb4" />
+
 
 ---
 
@@ -184,8 +186,10 @@ npm install
 
 This downloads and installs all libraries listed in `package.json`.
 
-<!-- Attach screenshot: npm install output -->
-![NPM Install](./screenshots/npm-install.png)
+<img width="960" height="138" alt="Screenshot 2026-03-09 133014" src="https://github.com/user-attachments/assets/57bb523a-ea9c-4f57-9227-4e1e9b395050" />
+
+<img width="1140" height="363" alt="image" src="https://github.com/user-attachments/assets/d7d539bf-76f2-4bdf-88c7-386e94ec8d4f" />
+
 
 ---
 
@@ -198,12 +202,16 @@ cd /opt
 sudo wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
 sudo unzip sonar-scanner-cli-5.0.1.3006-linux.zip
 ```
+<img width="1837" height="329" alt="Screenshot 2026-03-09 133124" src="https://github.com/user-attachments/assets/4b57a3fc-7390-49c0-8a83-a47e830cd24d" />
+<img width="1001" height="278" alt="Screenshot 2026-03-09 133135" src="https://github.com/user-attachments/assets/78430ede-185a-496d-bac1-9f18ecc81583" />
+
 
 Add SonarScanner to PATH:
 
 ```bash
 export PATH=$PATH:/opt/sonar-scanner-5.0.1.3006-linux/bin
 ```
+<img width="1354" height="35" alt="image" src="https://github.com/user-attachments/assets/7e0c7010-5413-4ef1-ae76-10bb8b31323d" />
 
 Verify the installation:
 
@@ -211,14 +219,14 @@ Verify the installation:
 sonar-scanner -v
 ```
 
+
 Expected output:
 
 ```
 SonarScanner 5.0.1.3006
 ```
 
-<!-- Attach screenshot: sonar-scanner -v output -->
-![SonarScanner Version](./screenshots/sonarscanner-version.png)
+<img width="1541" height="205" alt="image" src="https://github.com/user-attachments/assets/2bdb6746-c38d-426e-a4af-68bd6a3bf243" />
 
 ---
 
@@ -229,6 +237,7 @@ Export the token generated from SonarQube in Step 2:
 ```bash
 export SONAR_TOKEN=<your_project_token>
 ```
+<img width="1349" height="32" alt="image" src="https://github.com/user-attachments/assets/56e3f525-dfb4-4656-a8fe-17edbb7ba619" />
 
 ---
 
@@ -257,8 +266,8 @@ sonar-scanner \
 | `sonar.host.url` | SonarQube server address |
 | `sonar.login` | Authentication token |
 
-<!-- Attach screenshot: sonar-scanner CLI running / completion output -->
-![Sonar Scanner Run](./screenshots/sonar-scanner-run.png)
+<img width="735" height="176" alt="image" src="https://github.com/user-attachments/assets/80761fde-b377-41e2-8d0c-4cd425d251ad" />
+
 
 ---
 
@@ -287,8 +296,7 @@ Review the following metrics:
 | Maintainability Rating | A–E grade based on debt ratio |
 | Reliability Rating | A–E grade based on bug severity |
 
-<!-- Attach screenshot: SonarQube project dashboard showing all metrics -->
-![Analysis Results](./screenshots/analysis-results.png)
+
 
 ---
 
@@ -296,8 +304,9 @@ Review the following metrics:
 
 SonarQube automatically evaluates the project against defined quality rules.
 
-<!-- Attach screenshot: Quality Gate status (Passed/Failed) -->
-![Quality Gate](./screenshots/quality-gate.png)
+<img width="1065" height="539" alt="image" src="https://github.com/user-attachments/assets/222b172b-24f2-4006-9b26-993efddc9eb5" />
+
+<img width="1043" height="342" alt="image" src="https://github.com/user-attachments/assets/f3f4e242-8836-4f8b-a4f7-301d9284f12d" />
 
 Expected result:
 
@@ -305,25 +314,46 @@ Expected result:
 |---|---|
 | Quality Gate | Passed |
 | Reliability Rating | A |
-| Security Rating | A |
+| Security Rating | E |
 | Maintainability Rating | A |
 
 ---
 
 ## Step 10 – Security Hotspot Review
 
-Navigate to **Security Hotspots** in the SonarQube dashboard and review each flagged item. Mark each as:
+Navigate to **Security Hotspots** in the SonarQube dashboard. Review and mark each as **Safe**, **Fixed**, or **Acknowledged**.
 
-| Status | Meaning |
+**Hotspots detected: 4**
+
+| Priority | Issue |
 |---|---|
-| Reviewed | Hotspot has been manually assessed |
-| Safe | Risk accepted — no action required |
-| Fixed | Code has been corrected |
+| Medium | `COPY . /app` — recursive copy may expose sensitive data |
+| Medium | Node image runs as root user |
+| Low | 2 additional items under Others |
 
-<!-- Attach screenshot: Security Hotspots list in SonarQube -->
-![Security Hotspots](./screenshots/security-hotspots.png)
+<img width="1458" height="379" alt="image" src="https://github.com/user-attachments/assets/a385c7c8-a449-4a0c-8a76-3ce81fa676ba" />
+
 
 ---
+
+## Step 11 – Code Smell Review
+
+Navigate to **Issues → Code Smells** in the SonarQube dashboard.
+
+**Code smells detected: 2 issues · 10 min effort · File: Dockerfile**
+
+| Type | Issue | Severity | Effort |
+|---|---|---|---|
+| Consistency | Replace deprecated instructions with an up-to-date equivalent | Major | 5 min |
+| Intentionality | Remove cache after installing packages | Major | 5 min |
+
+Both are Maintainability issues flagged in the `Dockerfile` and should be resolved in the next sprint.
+
+<img width="1451" height="443" alt="image" src="https://github.com/user-attachments/assets/9ceb3917-fa13-4662-b8a9-0e843f6e403d" />
+
+
+---
+
 
 ## Result
 
