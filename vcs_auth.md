@@ -1,4 +1,4 @@
-# VCS Authentication – Demo
+# VCS Authentication
 
 ---
 
