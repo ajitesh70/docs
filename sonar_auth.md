@@ -4,7 +4,7 @@
 
 | Author | Created On | Version | Last Updated By | Reviewer L0 | Reviewer L1 | Reviewer L2 |
 |--------|------------|---------|-----------------|-------------|-------------|-------------|
-| Ajitesh Singh | 11-04-2026 | v1 | Ajitesh Singh | | | |
+| Ajitesh Singh | 11-04-2026 | v1 | Ajitesh Singh | Divya Mishra | Faisal | Mahesh |
 
 ---
 
@@ -16,7 +16,6 @@
 - [Organization-Based Access Control](#organization-based-access-control)
 - [Authentication Flow](#authentication-flow)
 - [Common Issues and Fixes](#common-issues-and-fixes)
-- [Key Concepts](#key-concepts)
 - [Conclusion](#conclusion)
 - [Contact Information](#contact-information)
 - [References](#references)
@@ -57,6 +56,8 @@ Go to: **https://github.com/settings/developers** → OAuth Apps → New OAuth A
 | Homepage URL | `http://<SONARQUBE-URL>:9000` |
 | Authorization Callback URL | `http://<SONARQUBE-URL>:9000/oauth2/callback/github` |
 
+<img width="1437" height="881" alt="Screenshot 2026-04-11 012810" src="https://github.com/user-attachments/assets/777aea92-43bb-4a32-818e-7db90f5c1904" />
+
 After creation, copy your:
 - **Client ID**
 - **Client Secret**
@@ -74,6 +75,8 @@ Set to:
 ```
 http://<SONARQUBE-URL>:9000
 ```
+<img width="1752" height="889" alt="Screenshot 2026-04-11 012540" src="https://github.com/user-attachments/assets/36b30b04-ff23-45a4-9813-f50bcadcb875" />
+
 
 ### Step 3 — Configure GitHub Auth in SonarQube
 
@@ -89,12 +92,17 @@ Administration → Configuration → Authentication → GitHub
 | Allow users to sign up | ✅ On |
 
 Click **Save**.
+<img width="1325" height="724" alt="Screenshot 2026-04-11 013103" src="https://github.com/user-attachments/assets/91a3cded-2962-403a-8845-dc2acdd39365" />
+<img width="1264" height="688" alt="Screenshot 2026-04-11 013113" src="https://github.com/user-attachments/assets/1637120e-9031-4e80-8c3a-dc7299b9b63a" />
+
 
 ### Step 4 — Test Login
 
 1. Logout from SonarQube
 2. You should now see a **"Log in with GitHub"** button on the login page
 3. Click it → authorize on GitHub → you will be redirected back and logged in automatically
+
+<img width="1376" height="399" alt="Screenshot 2026-04-11 014038" src="https://github.com/user-attachments/assets/5f4f9fa9-c427-4df1-8776-151b889c72bb" />
 
 ---
 
@@ -113,6 +121,7 @@ Enter your org name (exact spelling, case-sensitive):
 ```
 your-org-name
 ```
+<img width="1427" height="345" alt="Screenshot 2026-04-11 013933" src="https://github.com/user-attachments/assets/92f02c21-b404-4013-9bec-1d2842d81138" />
 
 ### Step 2 — Make Your Org Membership Public
 
@@ -126,11 +135,16 @@ https://github.com/orgs/<your-org>/people
 
 Find your username → change **Private → Public**
 
+<img width="1920" height="1080" alt="Screenshot (606)" src="https://github.com/user-attachments/assets/f59bb48c-5012-4d9a-b487-cabac4df903f" />
+
 ### Step 3 — Grant Org Access During OAuth
 
 When GitHub asks for authorization, click **Grant** next to your organization before clicking Authorize. Without this, GitHub will not send org membership data to SonarQube.
 
+<img width="633" height="695" alt="image" src="https://github.com/user-attachments/assets/b1d302fd-3282-45e4-a883-d718b3b28c04" />
+
 ---
+
 
 ## Authentication Flow
 
@@ -164,24 +178,6 @@ Dashboard access granted
 
 ---
 
-## Key Concepts
-
-### Why Public Org Membership?
-
-GitHub's API only exposes organization membership data when that membership is set to **Public**. SonarQube queries this API to enforce org-based access control. Even as an org owner, if your membership is private, the API returns no data and SonarQube denies access.
-
-### OAuth App vs GitHub App
-
-| | OAuth App | GitHub App |
-|---|---|---|
-| Setup difficulty | Simple (10–15 min) | Complex (1–2 hours) |
-| Best for | Standard CI/CD setups | Enterprise, strict org control |
-| Requires private key (.pem) | No | Yes |
-| Org restriction | Via config field | Built-in |
-
-This implementation uses **OAuth App** — the standard and recommended approach for most setups.
-
----
 
 ## Conclusion
 
